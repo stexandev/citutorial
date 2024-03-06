@@ -1,0 +1,13 @@
+name: CI tutorial
+run-name: Actor ${{ github.actor }} Event ${{ github.event_name }}
+on: push
+jobs:
+  first_job:
+    name: First Job
+    runs-on: ubuntu-latest # not a docker image but a full featured VM!?
+    steps:
+      - run: echo OS ${{ runner.os }}
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: ls
+        run: ls ${{ github.workspace }}
